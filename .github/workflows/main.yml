@@ -1,0 +1,20 @@
+name: Package Application with Pyinstaller
+
+on:
+  push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: hello, world
+    - run: echo "Hello, World"
+    
+    - uses: actions/checkout@v2
+
+    - name: Package Application
+      run: |
+        pip install -r src/requirements.txt
+        pip install pyinstaller -F --clean -y --dist ./dist main.py
