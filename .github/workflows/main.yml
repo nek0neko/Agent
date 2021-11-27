@@ -17,4 +17,5 @@ jobs:
     - name: Package Application
       run: |
         pip install -r src/requirements.txt
-        pip install pyinstaller -F --clean -y --dist ./dist main.py
+        pip install pyinstaller
+        -F --clean -y --dist ./dist main.py
