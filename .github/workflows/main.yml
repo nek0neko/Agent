@@ -18,4 +18,4 @@ jobs:
       run: |
         pip install -r src/requirements.txt
         pip install pyinstaller
-        -F --clean -y --dist ./dist main.py
+        pyinstaller -F --clean -y --dist ./dist main.py
