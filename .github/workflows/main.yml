@@ -19,26 +19,11 @@ jobs:
         pip install -r src/requirements.txt
         pip install pyinstaller
         pyinstaller -F --clean -y --dist $GITHUB_WORKSPACE/main src/main.py
-        zip -r $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/dist.main
+        zip $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/dist/main
         
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-        
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ github.workspace }}/main.zip
-        asset_name: main.zip
-        asset_content_type: application/zip
+        name: main.zip
+        path: $GITHUB_WORKSPACE/main.zip
+      name: 'Upload Package'
+
