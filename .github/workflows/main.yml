@@ -19,7 +19,7 @@ jobs:
         pip install -r src/requirements.txt
         pip install pyinstaller
         pyinstaller -F --clean -y --dist $GITHUB_WORKSPACE/main src/main.py
-        zip $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/dist/main
+        zip $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/main/main
         
     - uses: actions/upload-artifact@v1
       with:
