@@ -19,7 +19,7 @@ jobs:
         pip install -r src/requirements.txt
         pip install pyinstaller
         pyinstaller -F --clean -y --dist ./dist src/main.py
-        zip -r $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/main.zip
+        zip -r $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/main
         
     - name: Create Release
       id: create_release
