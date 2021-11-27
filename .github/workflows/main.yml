@@ -31,7 +31,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        docker run -v $GITHUB_WORKSPACE:/src cdrx/pyinstaller-windows:latest 'pyinstaller -F --clean -y --dist ./ --workpath /tmp test2.py'
+        docker run -v $GITHUB_WORKSPACE:/src cdrx/pyinstaller-linux:latest 'pyinstaller -F --clean -y --dist ./ --workpath /tmp test2.py'
         zip -r $GITHUB_WORKSPACE/test2.zip $GITHUB_WORKSPACE/test2.exe
 
         
