@@ -24,6 +24,6 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: main.zip
-        path: $GITHUB_WORKSPACE/main.zip
+        path: main.zip
       name: 'Upload Package'
 
