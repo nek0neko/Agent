@@ -19,8 +19,7 @@ jobs:
         pip install -r src/requirements.txt
         pip install pyinstaller
         pyinstaller -F --clean -y --dist $GITHUB_WORKSPACE/main src/main.py
-        cp /home/runner/work/Agent/Agent/dist/main /home/main
-        zip -r $GITHUB_WORKSPACE/main.zip /home/main
+        zip -r $GITHUB_WORKSPACE/main.zip $GITHUB_WORKSPACE/dist.main
         
     - name: Create Release
       id: create_release
